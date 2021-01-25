@@ -1,6 +1,4 @@
 def efficientJanitor(weight):
-	n = 5
-	weight = [1.01, 1.01, 1.01, 1.4, 2.4,3.0,1.0]
 	weight.sort(reverse=True)
 	count = 0
 	while len(weight):
