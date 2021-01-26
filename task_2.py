@@ -13,3 +13,4 @@ def efficientJanitor(weight):
 			print(weight)
 			count+=1
 	return count
+
