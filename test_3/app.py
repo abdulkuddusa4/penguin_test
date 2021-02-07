@@ -1,5 +1,6 @@
-from repository.routine import Routine,routine_list
+from repository.routine import Routine
 from services.service import error_message
+from termcolor import colored
 
 
 
@@ -16,21 +17,21 @@ def main():
 					dayIndex, hourIndex, courseIndex = map(int,input().split(sep=' '))
 					break
 				except:
-					error_message(['wrong input..',' enter again'])
+					error_message(['wrong input..',' try again'])
 			routine.append(dayIndex,hourIndex,courseIndex-1)
 			continue
 		elif cmd == 'B' or cmd == 'b':
 			routine.save()
-			print(routine)
+			print(colored(routine,'blue'))
 			break
 
 		elif cmd == 'C' or cmd == 'c':
 			for course in Routine.courses:
-				print(f'{course.courseName}, {course.teacherName}',end="\n\n\n\n")
+				print(colored(f'{course.courseName}, {course.teacherName}','green'),end="\n\n")
 			break
 
 		else:
-			error_message('wrong input.......')
+			error_message(['wrong input.......','try again'])
 			continue
 
 		pass

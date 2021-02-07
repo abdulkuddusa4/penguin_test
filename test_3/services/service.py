@@ -1,4 +1,5 @@
 import time
+import termcolor
 
 class Course:
 	def __init__(self,courseIndex, courseName, teacherName):
@@ -21,10 +22,13 @@ class Slot:
 		return f'{self.dayIndex} {self.hourIndex} {self.course.courseName}'
 
 
-def error_message(*msgs):
+def error_message(msgs):
 	#this function will print error msg on screen
+	if type(msgs) != list:
+		exception_msg = f"function error_message expected {list.__name__} not {msgs.__class__.__name__}"
+		raise Exception(exception_msg)
 	for msg in msgs:
-		print(msg)
+		print(termcolor.colored(msg,'red'))
 		time.sleep(.8)
 	print()
 
